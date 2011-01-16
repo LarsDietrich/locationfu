@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html><head>
+    <title>{% block title %}{% endblock %} - LocationFu</title>
+    <meta name="viewport" content="width=320, user-scalable=no" />
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png" />
+    <link rel="stylesheet" type="text/css" href="{{ "/static/css/mobile.css"|minify }}" />
+    <script type="text/javascript">
+        var is_mobile = true;
+    </script>
+    {% block style %}{% endblock %}
+</head>
+    
+<body>
+    <div id="container">
+        <div id="header-block">
+            <h1>LocationFu</h1>
+            <div id="header-details">
+                {% if logged_in %}
+                <div class="header-details-small">
+                    <a href="{{ logout_url }}">Logout</a>
+                </div>
+                {% else %}
+                <div class="header-details-small">
+                    <a href="{{ login_url }}">Login</a>
+                </div>
+                {% endif %}
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+        <div id="notifier-notice"></div>
+        <div id="notifier-error"></div>
+        
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div id="footer">
+            <a href="http://getsatisfaction.com/locationfu">Support</a> | <a href="mailto:contact@locationfu.com">Contact</a> | By <a href="http://bradkellett.com">Brad Kellett</a>
+        </div>
+        
+    </div>
+
+    <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAR0Hz7bGOqnopg8W0zpHQyRR8OkSpFh1dFE-bH4dU4ZWNt-P9IRTFF0vctvvyfy7FJU1IMXRloJn2JA"></script>
+    <script type="text/javascript" src="{{ "/static/js/base.js"|minify }}"></script>
+    {% block script %}{% endblock %}
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-11800536-1");
+            pageTracker._trackPageview();
+        } catch(err) {}
+    </script>
+</body>
+</html>

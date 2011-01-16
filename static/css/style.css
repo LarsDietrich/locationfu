@@ -1,0 +1,202 @@
+body {
+    margin:0;
+    font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+    font-size:14px;
+    color:#000;
+}
+
+.clear {
+    clear:both;
+}
+
+a {
+    color:#588d97;
+}
+
+#container {
+    width:700px;
+    margin:0 auto;
+    position:relative;
+}
+
+#header-block {
+    background:url(/static/images/header_bottom.png) no-repeat bottom center #588d97;
+    height:110px;
+    color:#fff;
+    margin-bottom:15px;
+}
+
+#header-block a {
+    color:#fff;
+}
+
+h1 {
+    width:210px;
+    height:48px;
+    float:left;
+    margin:32px 0 0 40px;
+    text-indent:-9999px;
+    background:url(/static/images/logo_large.png) no-repeat;
+}
+
+#header-details {
+    float:right;
+    margin:38px 40px 0 0;
+    text-align:right;
+}
+
+.header-details-large {
+    font-size:18px;
+}
+
+#content {
+    padding:0 10px;
+    position:relative;
+}
+
+#footer {
+    text-align:center;
+    border-top:1px solid #588d97;
+    margin-top:100px;
+    margin-bottom:50px;
+    padding-top:5px;
+    font-size:10px;
+}
+
+#notifier-notice, #notifier-error {
+    position:fixed;
+    top:-50px;
+    height:20px;
+    right:15px;
+    padding:4px 15px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+#notifier-notice {
+    background:#494949;
+    color:#fff;
+}
+
+#notifier-error {
+    background:#f00;
+    color:#fff;
+}
+
+p {
+    margin:20px 0;
+}
+
+/* Homepage */
+.homepage-info {
+    width:350px;
+    margin-bottom:20px;
+    float:left;
+}
+
+.homepage-info.first {
+    margin-top:40px;
+}
+
+.homepage-image {
+    float:right;
+    margin-top:20px;
+}
+
+.homepage-highlight {
+    background-color: #fdffbe;
+    padding:10px;
+}
+
+.homepage-news {
+    margin-top:40px;
+}
+
+.homepage-news h2 {
+    margin:0 0 4px;
+    font-size:14px;
+}
+
+/* Checkin Page */
+#service-adder {
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+#service-adder-list {
+    width:146px;
+    border:1px solid #b0b0b0;
+    background:url(/static/images/service_add_drop.png) repeat-x top;
+    position:absolute;
+    top:28px;
+    right:9px;
+    height:0;
+    overflow:hidden;
+    display:none;
+}
+
+#current-postings {
+    margin-bottom:25px;
+    padding-top:7px;
+}
+
+.current-postings-service {
+    text-decoration:none;
+    color:#000;
+    padding-left:12px;
+    margin-right:10px;
+    background:url(/static/images/service_delete.png) no-repeat left center;
+}
+
+.service-adder-item {
+    display:block;
+    margin:10px 0 10px 4px;
+}
+
+.instructions {
+    width:360px;
+    margin-bottom:25px;
+}
+
+#checkin-map {
+    height:450px;
+}
+
+#service-messages {
+    margin-bottom:25px;
+}
+
+#post-form .inputs {
+    position:relative;
+}
+
+#checkin-submit {
+    position:absolute;
+    top:15px;
+    right:50px;
+}
+
+#post-form .label-small {
+    margin-bottom:10px;
+}
+
+#post-form input.text {
+    width:300px;
+    border:1px solid #000;
+}
+
+#post-form label span {
+    display:block;
+    float:left;
+    width:130px;
+}
+
+#post-form .label-small {
+    font-size:10px;
+}
+
+#checkin-submit {
+    float:right;
+}

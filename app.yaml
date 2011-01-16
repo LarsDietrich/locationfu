@@ -1,0 +1,29 @@
+application: locationfu
+version: 2
+runtime: python
+api_version: 1
+
+
+handlers:
+- url: /static/(.*?)
+  static_files: static/\1
+  upload: static/(.*\.(gif|png|jpg|min\.css|min\.js))
+- url: /admin/.*
+  script: main.py
+  login: admin
+- url: /(.+)
+  script: main.py
+  login: required
+- url: .*
+  script: main.py
+
+
+# Skip config files, pyc files, dot files, and non-minifed CSS and JS
+skip_files:
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?index\.yaml
+- ^(.*/)?index\.yml
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?\..*
+- ^bin/.*?

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    
+    <div class="homepage-info first">
+        LocationFu is an easy way to <strong>broadcast your location</strong> to your favorite
+        location-based social networks. Now, it doesn't matter what network your
+        friends are on - you can check-in from one place and have your location
+        sent everywhere.
+    </div>
+    
+    <div class="homepage-info">
+        We support <a href="http://brightkite.com">Brightkite</a>, <a href="http://fireeagle.yahoo.net">Fire Eagle</a>,
+        <a href="http://playfoursquare.com">Foursquare</a>, and <a href="http://twitter.com">Twitter</a>, with more on the way.
+    </div>
+    
+    <div class="homepage-signin">
+        <a href="{{ login_url }}">Sign in with your Google Account</a>
+    </div>
+    
+{% endblock %}

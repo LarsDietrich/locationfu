@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    
+    <div>
+        <img class="homepage-image" src="/static/images/homepage_tower.png" alt="Broadcast your location everywhere" />
+        
+        <div class="homepage-info first">
+            LocationFu is an easy way to <strong>broadcast your location</strong> to your favorite
+            location-based social networks. Now, it doesn't matter what network your
+            friends are on - you can check-in from one place and have your location
+            sent everywhere.
+        </div>
+        
+        <div class="homepage-info">
+            We support <a href="http://brightkite.com">Brightkite</a>, <a href="http://fireeagle.yahoo.net">Fire Eagle</a>, <a href="http://playfoursquare.com">Foursquare</a>, and <a href="http://twitter.com">Twitter</a>, with more on the way.
+            Suggest your favorite network with the feedback button on the right!
+        </div>
+        
+        <div class="homepage-info">
+            <a href="{{ login_url }}">Sign in with your Google Account to get started</a>
+        </div>
+        
+        <div class="homepage-info homepage-highlight">
+            <strong>Tip:</strong> Use LocationFu on your iPhone or Android device!
+            just point your mobile browser to <a href="http://locationfu.com">http://locationfu.com</a>,
+            and we'll do the rest.
+        </div>
+    </div>
+    
+    <div class="clear"></div>
+    
+    {% if news %}
+        <div class="homepage-news">
+            <h2>Latest News</h2>
+            {% for post in news %}
+                <div><strong>{{ post.created|date:"d M" }}:</strong> {{ post.message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+{% endblock %}

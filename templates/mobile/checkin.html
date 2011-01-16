@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Checkin{% endblock %}
+
+{% block content %}
+
+    <div id="current-postings">
+        {% if services|length %}
+            Posting to:
+            {% for service in services %}
+                <a class="current-postings-service" href="/service/remove?service={{ service.service }}">{{ service.friendly_name }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            <div class="small">Click a service to remove</div>
+        {% else %}
+            Posting to: No Services!
+        {% endif %}
+    </div>
+    
+    {% if services|length %}
+        <div class="instructions">
+            We're going to find your location and drop a pin on the map. If that doesn't work,
+            or you want to search for a business, use the search box on the map below.
+        </div>
+        
+        <form id="post-form" method="post" action="/post">
+            <div class="inputs">
+                <label for="place">
+                    <span>Name This Spot:
+                        <span class="label-small">or search using the map</span>
+                    </span>
+                    <input type="text" class="text" id="place" value='' />
+                </label>
+                
+                <div class="clear"></div>
+                
+                <label for="message">
+                    <span>Add a Message:
+                        <span class="label-small">optional</span>
+                    </span>
+                    <input type="text" class="text" id="message" value='' />
+                </label>
+                
+                <div class="clear"></div>
+                
+                <div class="submit-container">
+                    <input type="submit" class="submit" value="Post" />
+                </div>
+            </div>
+        </form>
+        
+        <div id="service-messages"></div>
+        
+        <div id="checkin-map"></div>
+        <div id="checkin-search-results"></div>
+        
+    {% else %}
+        <div class="instructions">
+            You haven't added any services to post to! Click a link below to add your first service now.
+        </div>
+    {% endif %}
+    
+    <div id="service-adder">
+        <div id="service-adder-list">
+            Add/update a service: 
+            {% for service in adapters %}
+                <a class="service-adder-item" href="/service/add?service={{ service.service }}">{{ service.friendly_name }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+{% endblock %}
+    
+{% block script %}
+    <script type="text/javascript" src="{{ "/static/js/gears_init.js"|minify }}"></script>
+    <script type="text/javascript" src="{{ "/static/js/checkin.js"|minify }}"></script>
+{% endblock %}

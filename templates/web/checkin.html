@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Checkin{% endblock %}
+
+{% block content %}
+
+    <div id="current-postings">
+        {% if services|length %}
+            Posting to:
+            {% for service in services %}
+                <a class="current-postings-service" href="/service/remove?service={{ service.service }}">
+                    {{ service.friendly_name }}
+                </a>
+            {% endfor %}
+        {% else %}
+            Posting to: No Services!
+        {% endif %}
+    </div>
+    
+    <div id="service-adder">
+        <img src="/static/images/service_add.png" id="service-adder-button" />
+        <div id="service-adder-list">
+            {% for service in adapters %}
+                <a class="service-adder-item" href="/service/add?service={{ service.service }}">{{ service.friendly_name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    
+    {% if services|length %}
+        <div class="instructions">
+            We're going to try and figure out your location (this will take a minute). If all
+            goes well, we'll drop a pin on the map, then just name your spot and post! If we can't
+            find you, or you'd like to search for a business, use
+            the map below.
+        </div>
+        
+        <form id="post-form" method="post" action="/post">
+            <div class="inputs">
+                <label for="place">
+                    <span>Name This Spot:</span>
+                    <input type="text" class="text" id="place" value='' />
+                </label>
+                <div class="label-small">
+                    or search using the map
+                </div>
+                
+                <label for="message">
+                    <span>Add a Message:</span>
+                    <input type="text" class="text" id="message" value='' />
+                </label>
+                <div class="label-small">
+                   optional 
+                </div>
+                
+                <input type="image" src="/static/images/post_button.png" alt="Check In" id="checkin-submit" />
+            </div>
+        </form>
+        
+        <div id="service-messages"></div>
+        
+        <div id="checkin-map"></div>
+        <div id="checkin-search-results"></div>
+        
+    {% else %}
+        <div class="instructions">
+            You haven't added any services to post to! Use the menu to the right
+            to add your first service now.
+        </div>
+    {% endif %}
+    
+{% endblock %}
+    
+{% block script %}
+    <script type="text/javascript">
+        var active_services = [];
+        {% for service in services %}active_services.push("{{ service.service }}");
+        {% endfor %}
+    </script>
+    
+    <script type="text/javascript" src="{{ "/static/js/gears_init.js"|minify }}"></script>
+    <script type="text/javascript" src="{{ "/static/js/checkin.js"|minify }}"></script>
+{% endblock %}

@@ -1,0 +1,125 @@
+body {
+    margin:0;
+    font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+    font-size:14px;
+    color:#000;
+}
+
+.clear {
+    clear:both;
+}
+
+.small {
+    font-size:10px;
+}
+
+a {
+    color:#588d97;
+}
+
+#container {
+    width:320px;
+    margin:0;
+    position:relative;
+}
+
+#header-block {
+    background:#588d97;
+}
+
+#header-block a {
+    color:#fff;
+}
+
+h1 {
+    width:101px;
+    height:28px;
+    float:left;
+    margin:0;
+    text-indent:-9999px;
+    background:url(/static/images/logo_small.png) no-repeat;
+}
+
+.header-details-small {
+    float:right;
+    margin:4px 5px 0 0;
+}
+
+#notifier-notice, #notifier-error {
+    background:#d6d6d6;
+    text-align:center;
+}
+
+#content {
+    padding:5px;
+}
+
+
+#footer {
+    background:#588d97;
+    text-align:center;
+    padding:4px;
+}
+
+#footer a {
+    color:#fff;
+}
+
+p {
+    margin:10px 0;
+}
+
+/* Homepage */
+.homepage-info {
+    margin-bottom:20px;
+}
+
+.homepage-info.first {
+    margin-top:20px;
+}
+
+.homepage-signin {
+    text-align:center;
+    font-weight:bold;
+    margin-bottom:40px;
+}
+
+/* Checkin page */
+.instructions {
+    margin:10px 0;
+}
+
+#post-form input {
+    margin-bottom:15px;
+}
+
+#post-form label span {
+    display:block;
+    float:left;
+    width:125px;
+}
+
+#post-form .label-small {
+    font-size:10px;
+}
+
+#post-form .submit-container {
+    text-align:center;
+}
+
+#post-form .submit {
+    width:200px;
+}
+
+#checkin-map {
+    height:200px;
+}
+
+#service-adder {
+    margin:10px 0;
+}
+
+#service-messages {
+    margin-bottom:10px;
+    font-size:10px;
+}
